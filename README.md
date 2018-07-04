@@ -36,19 +36,12 @@ On first run, if not already present, configuration file will generated in ~/.ma
 
 ```
 cd ../mastodon-lite
-nodejs main.js
+NODE_PATH=. node main
 error: TODO: edit configuration file ~/.mastodon-lite.json
 ```
 
 Then update credentials in template file with "Your access token" in earlier step,
 if running on different instance, host and port should be changed accordingly,
-
-Alternatively, class can be included directly from current work directory:
-
-```
-sed -e 's/mastodon-lite/index.js/g' < main.js
-nodejs main.js
-```
 
 
 #### FETCH CONTENTS: ####
@@ -56,7 +49,7 @@ nodejs main.js
 By default timeline will be displayed:
 
 ```
-nodejs main.js
+node main
 ```
 
 Response is a JSON stream of all posts:
@@ -81,7 +74,7 @@ Response is a JSON stream of all posts:
 To post a message, just add a quoted message as parameter:
 
 ```
-nodejs main.js 'https://www.npmjs.com/package/mastodon-lite# #MastodonLite : A lightweight #Mastodon client to support #ConstraintedDevices using #IotJs cc: @TizenHelper@quitter.is '
+NODE_PATH=. node main 'https://www.npmjs.com/package/mastodon-lite# #MastodonLite : A lightweight #Mastodon client to support #ConstraintedDevices using #IotJs cc: @TizenHelper@quitter.is '
 ```
 
 Message (toot) should be displayed on your profile's page (ie: https://mastodon.social/@tizenhelper/99568473401250711 )
@@ -167,8 +160,7 @@ Module is in NPM repo, so it can be added using npm tool:
 ```
 ls package.json || npm init
 npm install mastodon-lite
-cp -a node_modules/mastodon-lite/main.js .
-IOTJS_EXTRA_MODULE_PATH=./node_modules/ iotjs ./main.js
+NODE_PATH=node_modules node node_modules/mastodon-lite/main
 ```
 
 
@@ -185,8 +177,8 @@ Code can be imported using node npm package manager tool:
 ```
 ls package.json || npm init
 npm install mastodon-lite
-cp -a node_modules/mastodon-lite/main.js .
-IOTJS_EXTRA_MODULE_PATH=./node_modules/ iotjs ./main.js
+IOTJS_EXTRA_MODULE_PATH=./node_modules/ iotjs node_modules/mastodon-lite/main
+
 ```
 
 Alternatively gitmodule can be used to track master branch.
