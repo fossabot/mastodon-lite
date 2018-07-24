@@ -7,6 +7,8 @@ for supporting iotjs runtime, (as well as node).
 
 So far only 'https' module is used (and 'fs' for the example app)
 
+[![NPM](https://nodei.co/npm/mastodon-lite.png)](https://npmjs.org/package/mastodon-lite)
+
 
 ## USAGE: ##
 
@@ -151,6 +153,10 @@ and client will get server's answer in this form:
   "emojis": []
 }
 ```
+
+### DEMO: ###
+
+[![web-of-things-agriculture-20180712rzr.webm](https://media.giphy.com/media/tKyrtKMc77iV9QUCrP/giphy.gif)](https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm "Video Demo")
 
 
 #### INTEGRATE ####
