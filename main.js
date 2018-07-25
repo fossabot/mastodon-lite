@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
-var Mastodon = require('mastodon-lite');
+var Mastodon;
+try {
+  Mastodon = require('./mastodon-lite');
+} catch (err) {
+  Mastodon = require('mastodon-lite');
+}
 var conf = process.env.HOME + "/.mastodon-lite.json";
 
 var config = {
